@@ -1,6 +1,6 @@
 awtystat = False
 def areWeThereYet():
-  areWeThereYet = input("Are we there yet?")
+  areWeThereYet = input("Are we there yet?\n")
   if areWeThereYet == "yes" or areWeThereYet == "y" or areWeThereYet == "ye" or areWeThereYet == "yep" or areWeThereYet == "Yes" or areWeThereYet == "Y" or areWeThereYet == "Ye" or areWeThereYet == "Yep" :
     print("WHOHOOOOO, YIPPEE, A TRIP YEEHEEEEEEE")
     awtystat = True

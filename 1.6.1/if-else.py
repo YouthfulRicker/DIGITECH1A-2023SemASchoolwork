@@ -1,7 +1,7 @@
 from time import sleep
 def ageCheck():
-  age=int(input("How old are you? "))
-  name=input("What's your name? ")
+  age=int(input("How old are you?\n"))
+  name=input("What's your name?\n")
   if age < 18 :
     print("{}, YOU CAN'T GO TO THE CLUB YOU GOTTA WAIT {} YEARS".format(name.upper(), 18-age))
     sleep(5)
@@ -9,7 +9,7 @@ def ageCheck():
   elif age >= 18 :
     print("Aight {} let's go clubbing!".format(name.title()))
     sleep(3)
-    drink=input("What drink would you like? ")
+    drink=input("What drink would you like?\n")
     sleep(2)
     print("aight, Waiter!!")
     sleep(1)
