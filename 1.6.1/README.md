@@ -1,6 +1,7 @@
 # 1.6.1
 Create if/else program and a user-prompted loop, and enclose code in a function.
 
+<<<<<<< HEAD
 ---
 
 ### if-else.py
@@ -14,3 +15,9 @@ if-else.py is a basic program to showcase an if/else statement. I took the narra
 In loop.py there's a showcase of a loop where a child keeps asking during a road trip "Are we there yet?", causing a loop of response that is controlled by the player. No being a redo of the program, Yes being a HALT.
 
 ---
+=======
+
+### if-else.py
+---
+if-else is a basic program to showcase an if/else statement.
+>>>>>>> f514fb0fa5e99280113494059abd05e0527496f3
