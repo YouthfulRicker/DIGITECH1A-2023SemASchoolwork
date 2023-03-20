@@ -1,3 +1,4 @@
+from time import sleep
 import os
 import sys
 
@@ -9,7 +10,8 @@ os.chdir("1.6.1/")
 #current_path()
 sys.path.append(os.getcwd())
 
-from loop import areWeThereYet
-from i\f\-el\se import areWeThereYet
+import loop
+import ifelse
 
-areWeThereYet()
+#areWeThereYet()
+ifelse.ageCheck()
