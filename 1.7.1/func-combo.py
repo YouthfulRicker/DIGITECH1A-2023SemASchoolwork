@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 def current_path(): 
   print("Current working directory: " + os.getcwd()) 
