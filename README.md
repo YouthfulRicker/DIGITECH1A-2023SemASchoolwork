@@ -20,3 +20,7 @@ Example:
 - 1.6.1 is from 3.13 to 3.14
 - 1.7.1 is from 3.20 to 3.26
 - 1.8.1 is from 3.27 to 3.30
+
+---
+
+- numbrguessr.py is my final project, a number guessing game.
