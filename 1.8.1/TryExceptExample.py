@@ -5,7 +5,7 @@ try:
     varOne = 1
   except: #except is a failure message
     print("Something went wrong when printing")
-  else:
+  else: #else is a success story
     print('You are oddly competent!')
   finally: #finally will happen regardless of anything
     print('Finally Executed')
