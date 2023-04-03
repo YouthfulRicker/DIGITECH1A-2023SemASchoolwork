@@ -17,6 +17,9 @@ time.sleep(1)
 print(
   "You will recieve a list of numbers soon.\nThis list will contain numbers from 1-100, and one of them is stored in a variable here in my house, in the backend.\nYou will soon be required to guess that very number for an infinite number.\nNow to set your expectations, you only have a 1/100 chance of winning so good luuuck-!"
 )
+print("Now, {}, it's time to play a game, a number guessing game!!".format(name.title()))
+time.sleep(1)
+print("You will recieve a list of numbers soon.\nThis list will contain numbers from 1-100, and one of them is stored in a variable here in my house, in the backend.\nYou will soon be required to guess that very number for an infinite number.\nNow to set your expectations, you only have a 1/100 chance of winning so good luuuck-!")
 time.sleep(15)
 
 # level start
