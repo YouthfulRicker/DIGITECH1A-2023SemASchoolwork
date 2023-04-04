@@ -24,3 +24,5 @@ Example:
 ---
 
 - numbrguessr.py is my final project, a number guessing game.
+  - Dependencies:
+    - colorama (`pip install colorama`)
