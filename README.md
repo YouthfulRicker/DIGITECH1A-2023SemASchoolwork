@@ -26,3 +26,4 @@ Example:
 - numbrguessr.py is my final project, a number guessing game.
   - Dependencies:
     - colorama (`pip install colorama`)
+- colortesting.py is exactly what it says it is, It's just a basic tester for colorama colors and styles.
