@@ -1,4 +1,4 @@
-awtystat = False
+aawtystat = False
 
 
 def areWeThereYet():
