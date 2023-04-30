@@ -28,6 +28,6 @@ elif file == "7":
   exec(open("colortesting.py").read())
 elif file == "8":
   os.system('clear')
-  exec(open("numbrguessr.py").read())
+  exec(open("NumberGuess/numbrguessr.py").read())
 else:
   print('bruh try again.')
