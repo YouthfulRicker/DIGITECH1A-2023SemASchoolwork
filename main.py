@@ -25,7 +25,7 @@ elif file == "6":
   exec(open("1.8.1/TryExceptExample.py").read())
 elif file == "7":
   os.system('clear')
-  exec(open("colortesting.py").read())
+  exec(open("1.11.1/colortesting.py").read())
 elif file == "8":
   os.system('clear')
   exec(open("NumberGuess/numbrguessr.py").read())
