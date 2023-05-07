@@ -9,43 +9,40 @@ from colorama import Fore, Back, Style
 guessstat = False
 hundy = list(range(1, 101))
 numero = random.randrange(1, 101)
+hcalerts = [
+  "\nYOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!",
+  "\nYou are close my friend. Close but incorrect.\nHot, as people would say.",
+  "\nYou are somewhat warm, somewhat.",
+  "\nCold, slightly uncomfortably cold, but bearable.",
+  "\nYou are absolutely freezing. I feel for you."
+]
+#print(hcalerts[1])
 
 # funcs
 def hotCold(input):
-#  if input < numero:
-#    if (numero-input) < 10:
-#      print(Fore.RED + Style.BRIGHT + "YOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!")
-#    elif (numero-input) < 20:
-#      print(Fore.RED + Style.NORMAL + "You are close my friend. Close but incorrect.\nHot, as people would say.")
-#    elif (numero-input) < 30:
-#      print(Fore.YELLOW + Style.BRIGHT + "You are somewhat warm, somewhat.")
-#    elif (numero-input) < 40:
-#      print(Fore.CYAN + Style.BRIGHT + "Cold, slightly uncomfortably cold, but bearable.")
-#    else:
-#      print(Fore.BLUE + Style.BRIGHT + "You are absolutely freezing. I feel for you.")
   diff = abs(input - numero)
   if input < numero:
     if diff < 10:
-      print(Fore.RED + Style.BRIGHT + "\nYOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!")
+      print(Fore.RED + Style.BRIGHT + hcalerts[0])
     elif diff < 20:
-      print(Fore.RED + Style.NORMAL + "\nYou are close my friend. Close but incorrect.\nHot, as people would say.")
+      print(Fore.RED + Style.NORMAL + hcalerts[1])
     elif diff < 30:
-      print(Fore.YELLOW + Style.BRIGHT + "\nYou are somewhat warm, somewhat.")
+      print(Fore.YELLOW + Style.BRIGHT + hcalerts[2])
     elif diff < 40:
-      print(Fore.CYAN + Style.BRIGHT + "\nCold, slightly uncomfortably cold, but bearable.")
+      print(Fore.CYAN + Style.BRIGHT + hcalerts[3])
     else:
-      print(Fore.BLUE + Style.BRIGHT + "\nYou are absolutely freezing. I feel for you.")
+      print(Fore.BLUE + Style.BRIGHT + hcalerts[4])
   elif input > numero:
     if diff < 10:
-      print(Fore.RED + Style.BRIGHT + "\nYOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!")
+      print(Fore.RED + Style.BRIGHT + hcalerts[0])
     elif diff < 20:
-      print(Fore.RED + Style.NORMAL + "\nYou are close my friend. Close but incorrect.\nHot, as people would say.")
+      print(Fore.RED + Style.NORMAL + hcalerts[1])
     elif diff < 30:
-      print(Fore.YELLOW + Style.BRIGHT + "\nYou are somewhat warm, somewhat.")
+      print(Fore.YELLOW + Style.BRIGHT + hcalerts[2])
     elif diff < 40:
-      print(Fore.CYAN + Style.BRIGHT + "\nCold, slightly uncomfortably cold, but bearable.")
+      print(Fore.CYAN + Style.BRIGHT + hcalerts[3])
     else:
-      print(Fore.BLUE + Style.BRIGHT + "\nYou are absolutely freezing. I feel for you.")
+      print(Fore.BLUE + Style.BRIGHT + hcalerts[4])
 
 def numbGuess(guess):
   global guessstat
@@ -95,9 +92,9 @@ else:
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
 while not guessstat:
   guessstat = False
-  try:
-    numbGuess(int(input(Fore.BLUE + Style.BRIGHT + "\nWhat do you think is the number?\n")))
-  except:
-    print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
+#try:
+  numbGuess(int(input(Fore.BLUE + Style.BRIGHT + "\nWhat do you think is the number?\n")))
+#except:
+#  print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
 
 # end/victory
