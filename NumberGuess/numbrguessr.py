@@ -1,4 +1,5 @@
 # startDate: 2023.4.3
+# boundaryTest: pass
 
 # import time, random, colors
 import random
@@ -20,17 +21,6 @@ hcalerts = [
 
 # funcs
 def hotCold(input):
-#  if input < numero:
-#    if (numero-input) < 10:
-#      print(Fore.RED + Style.BRIGHT + "YOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!")
-#    elif (numero-input) < 20:
-#      print(Fore.RED + Style.NORMAL + "You are close my friend. Close but incorrect.\nHot, as people would say.")
-#    elif (numero-input) < 30:
-#      print(Fore.YELLOW + Style.BRIGHT + "You are somewhat warm, somewhat.")
-#    elif (numero-input) < 40:
-#      print(Fore.CYAN + Style.BRIGHT + "Cold, slightly uncomfortably cold, but bearable.")
-#    else:
-#      print(Fore.BLUE + Style.BRIGHT + "You are absolutely freezing. I feel for you.")
   diff = abs(input - numero)
   if input < numero:
     if diff < 10:
@@ -103,9 +93,9 @@ else:
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
 while not guessstat:
   guessstat = False
-#try:
+try:
   numbGuess(int(input(Fore.BLUE + Style.BRIGHT + "\nWhat do you think is the number?\n")))
-#except:
-#  print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
+except:
+  print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
 
 # end/victory

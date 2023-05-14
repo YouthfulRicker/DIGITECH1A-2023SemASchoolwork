@@ -92,9 +92,9 @@ else:
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
 while not guessstat:
   guessstat = False
-#try:
+try:
   numbGuess(int(input(Fore.BLUE + Style.BRIGHT + "\nWhat do you think is the number?\n")))
-#except:
-#  print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
+except:
+  print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
 
 # end/victory
