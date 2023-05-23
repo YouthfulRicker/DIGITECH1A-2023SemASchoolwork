@@ -19,6 +19,13 @@
   - Colour
   - HotCold func
   - Cheat Code
+- ngIt5.py
+  - Game Engine (removed boolean variable, made engine definition return true/false)
+  - Game Base (moved to function 'game_start')
+  - Introduction with Name Use
+  - Colour
+  - HotCold func
+  - Cheat Code (changed to '5937')
 
 ---
 
