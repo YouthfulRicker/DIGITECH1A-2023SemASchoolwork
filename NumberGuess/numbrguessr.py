@@ -1,16 +1,17 @@
+"""Basic number guessing game."""
 # startDate: 2023.4.3
 
 # import time, random, colors
 import random
 import time
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
-# global vars
+# vars
 hundy = list(range(1, 101))
 numero = random.randrange(1, 101)
 hotcold_alerts = [
     "\nYOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!",
-    "\nYou are close my friend. Close but incorrect.\nHot, as people would say.",
+    "\nYou are close, close but incorrect.\nHot, as people would say.",
     "\nYou are somewhat warm, somewhat.",
     "\nCold, slightly uncomfortably cold, but bearable.",
     "\nYou are absolutely freezing. I feel for you."
@@ -19,6 +20,7 @@ hotcold_alerts = [
 
 # funcs
 def hot_cold(input):
+    """Return hot/cold info."""
     difference = abs(input - numero)
     if input < numero:
         if difference < 10:
@@ -45,14 +47,13 @@ def hot_cold(input):
 
 
 def number_guess(guess):
+    """Process the user's number guess."""
     if guess in hundy:
         if guess == numero:
-            print(Fore.GREEN + Style.BRIGHT + "\nWELL DONE! GUESSED CORRECTLY!")
+            print(Fore.GREEN + Style.BRIGHT + "Correct!! Farewell Friend!")
             return True
         else:
             hot_cold(guess)
-            time.sleep(1)
-            print(Fore.RED + Style.BRIGHT + "Try again!")
             time.sleep(1)
     else:
         print(Fore.RED + Style.BRIGHT + "Please, within 1-100.\n")
@@ -60,6 +61,7 @@ def number_guess(guess):
 
 
 def number_print():
+    """Return the numbers 1-100 in a list."""
     for i in range(1, 101):
         if i <= 99:
             print(Fore.BLUE + Style.BRIGHT + "{}".format(i), end=", ")
@@ -68,14 +70,25 @@ def number_print():
     time.sleep(5)
 
 
-def game_start():
-    while True:
+def game_start(attempt_count):
+    """Do number_guess in loops."""
+    correct = False
+    while attempt_count != 0 and not correct:
         try:
-            guess = int(input(Fore.BLUE + Style.BRIGHT +"\nWhat do you think is the number?\n"))
+            guess = int(
+                input(Fore.BLUE + Style.BRIGHT + "\nGuess the Number!\n"))
             if number_guess(guess):
+                correct = True
                 break
         except ValueError:
             print(Fore.RED + Style.BRIGHT + "\nPlease enter an actual number.")
+        attempt_count -= 1
+        if attempt_count == 1:
+            print(Fore.RED + Style.BRIGHT + "Make it good, 1 attempt left!")
+        elif attempt_count == 0:
+            print(Fore.RED + Style.BRIGHT + "Sorry, out of attempts!")
+        else:
+            print("Try again, {} attempts left.".format(attempt_count))
 
 
 # name + personalisation
@@ -94,16 +107,22 @@ else:
           "\nNow, {}, it's time to play a game, a number guessing game!!".
           format(name.title()))
     time.sleep(4)
-    print(
-        Fore.WHITE + Style.BRIGHT +
-        "\nYou will recieve a list of numbers soon.\nThis list will contain numbers from 1-100, and one of them is stored in a variable here in my house, in the backend.\nYou will soon be required to guess that very number for an infinite number.\nYou will also be alerted to how Hot or Cold you are to the answer!\nNow to set your expectations, you only have a 1/100 chance of winning so good luuuck-!\n"
-    )
+    print(Fore.WHITE + Style.BRIGHT +
+          "\nYou will recieve a list of numbers soon.")
+    print(Fore.WHITE + Style.BRIGHT +
+          "You will be shown some numbers, one is the key.")
+    print(Fore.WHITE + Style.BRIGHT +
+          "You will soon be required to guess that very number.")
+    print(Fore.WHITE + Style.BRIGHT +
+          "You will also be alerted to how Hot or Cold you are to the answer!")
+    print(Fore.WHITE + Style.BRIGHT +
+          "You only have a 1/100 chance of winning so good luuuck-!\n")
     time.sleep(10)
     # level start
     number_print()
 
 # number-guessing
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
-game_start()
+game_start(6)
 
 # end/victory

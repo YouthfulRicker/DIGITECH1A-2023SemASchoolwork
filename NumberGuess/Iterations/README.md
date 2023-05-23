@@ -26,6 +26,7 @@
   - Colour
   - HotCold func
   - Cheat Code (changed to '5937')
+  - Attempt Countdown
 
 ---
 
@@ -50,3 +51,6 @@
 - Cheat Code
   - I added a singular cheat code, for the original reason cheat codes were invented. To get around the preview quicker as a developer!
   - It's based in the name variable, where when you type your name, you should actually type 'testcode', and it will bypass the introduction and give you the answer. This was designed so I could bypass the introduction and test the HotCold function with the answer given to me.
+- Attempt Countdown
+    - The attempt countdown gives a limited quantity of guesses, allowing for a greater sense of engagement and urgency for the player.
+    - In essence, it counts down the quantity of guesses the user takes, using a function argument in the Game Base
