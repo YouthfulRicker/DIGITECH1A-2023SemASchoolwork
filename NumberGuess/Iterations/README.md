@@ -54,3 +54,19 @@
 - Attempt Countdown
     - The attempt countdown gives a limited quantity of guesses, allowing for a greater sense of engagement and urgency for the player.
     - In essence, it counts down the quantity of guesses the user takes, using a function argument in the Game Base
+
+-------
+
+# Testing
+
+|**Test ID**|**Test Scenario**|**Test Description**|**Test Steps**|**Expected Results**|
+|---|---|---|---|---|
+|1|Enter text string as guess|This is to test whether the program will just spit out an error and end or notify the user as to the error and continue when given a string when expecting an integer.|Enter "portland" when asked for a guess.|I expect that my try/except should catch the issue and notify the user without stopping the program.|
+|2|Boundary test number input range|This will check whether when you guess, if you enter a number outside of 1-100, that it'll tell you and allow you to guess again rather than immediately turn off.|Try guessing 0, 1, 100, 101, 150, and 200.|I expect that it will tell me to guess within the boundaries. By this definition, 0, 101, and 150 should all fail and trip the error warning.|
+|3|Name usage|
+
+### Test Results
+|**Test ID**|**ngIt1**|**ngIt2**|**ngIt3**|**ngIt4**|**ngIt5**|
+|---|---|---|---|---|---|
+|1|Success|Success|Success|Success|Success|
+|2|Success|Success|Success|Success|Success|
