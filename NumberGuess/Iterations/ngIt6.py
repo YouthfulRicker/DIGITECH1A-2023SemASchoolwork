@@ -141,3 +141,7 @@ else:
 # number-guessing
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
 game_start(6)
+
+# replay
+
+# end/victory
