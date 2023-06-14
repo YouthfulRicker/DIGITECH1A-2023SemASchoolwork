@@ -8,3 +8,4 @@ This folder simply contains the numbrguessr.py program, and it's iterations base
   - Dependencies:
     - colorama (`pip install colorama`)
   - numbrguessr.py will always be a duplicate of the latest iteration, as it is the main program.
+- Pre-Planning contains my Flowchart and Pseudocode iterations.
