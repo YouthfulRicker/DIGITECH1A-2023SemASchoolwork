@@ -1,0 +1,38 @@
+// This program is a simple number guessing game.
+
+// Generate a random number between 1 and 100
+numero = random_number(1, 100)
+
+// Set the attempt count to 6
+attempt_count = 6
+
+// Repeat until the attempt count reaches 0 or the player guesses the correct number
+while attempt_count > 0:
+    // Prompt the player to enter their guess
+    guess = input("Guess the number!\n")
+
+    // If the player's guess is a valid number between 1 and 100
+    if is_valid_number(guess):
+        guess = convert_to_integer(guess)
+
+        // If the player's guess is equal to the random number
+        if guess == numero:
+            print("You got it whooooo!!!")
+            break
+        // If the player's guess is less than the random number
+        else if guess < numero:
+            print("Too low. Try a higher number.")
+        // If the player's guess is greater than the random number
+        else:
+            print("Too high. Try a lower number.")
+
+        // Decrease the attempt count by 1
+        attempt_count = attempt_count - 1
+
+    // If the player's guess is not a valid number between 1 and 100
+    else:
+        print("Pick a number between 1 and 100 please.")
+
+// If the player runs out of attempts
+if attempt_count == 0:
+    print("Sorry, you're out of attempts. The correct number was", numero)
