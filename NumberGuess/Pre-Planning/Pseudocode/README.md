@@ -28,3 +28,6 @@ Most of these changes were recommended to me by peers.
 - After each game, the player is asked if they want to play again.
 - If the player wants to play again, the "start_game" function is recursively called.
 - If the player does not want to play again, a goodbye message is displayed.
+
+### Set 4
+- The program is now the same as set 3, only with a greeting added to comfort the player.
