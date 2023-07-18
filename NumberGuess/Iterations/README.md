@@ -93,9 +93,9 @@
 ### Test Results
 |**Test ID**|**ngIt1**|**ngIt2**|**ngIt3**|**ngIt4**|**ngIt5**|**ngIt6**|
 |---|---|---|---|---|---|---|
-|1|||||||
-|2|||||||
-|3|||||||
-|4|||||||
-|5|||||||
-|6|||||||
+|1|Success|Success|Success|Success|Success|Success|
+|2|Success|Success|Success|Success|Success|Success|
+|3|N/A|Semi-Success|Semi-Success|Semi-Success|Semi-Success|Semi-Success|
+|4|N/A|N/A|N/A|Success|Success|Success|
+|5|N/A|N/A|N/A|N/A|Semi-Success|Semi-Success|
+|6|N/A|N/A|N/A|N/A|N/A|Fail|
