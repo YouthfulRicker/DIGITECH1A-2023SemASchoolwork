@@ -36,6 +36,15 @@
   - Cheat Code 
   - Attempt Countdown
   - Replay Function
+- ngIt6.py
+  - Game Engine 
+  - Game Base 
+  - Introduction with Name Use
+  - Colour
+  - HotCold func
+  - Cheat Code 
+  - Attempt Countdown
+  - Replay Function
 
 ---
 
@@ -76,17 +85,17 @@
 |---|---|---|---|---|
 |1|Enter text string as guess|This is to test whether the program will just spit out an error and end or notify the user as to the error and continue when given a string when expecting an integer.|Enter "portland" when asked for a guess.|I expect that my try/except should catch the issue and notify the user without stopping the program.|
 |2|Boundary test number input range|This will check whether when you guess, if you enter a number outside of 1-100, that it'll tell you and allow you to guess again rather than immediately turn off.|Try guessing 0, 1, 100, 101, 150, and 200.|I expect that it will tell me to guess within the boundaries. By this definition, 0, 101, and 150 should all fail and trip the error warning.|
-|3|Name usage|This tests whether names are handled correctly in the script. Removing unnecessary spaces, correcting capitalisation, etc.|Enter "  FoRResTer GUmP  "|This, through the variable modifications and scripting, should output "Forrester Gump".|
+|3|Name usage|This tests whether names are handled correctly in the script. Removing unnecessary spaces, correcting capitalisation, etc. This should also catch out gibberish number-riddled names.|Enter "  FoRResTer GUmP  " and "5m1l3y F4c3"|This, through the variable modifications and scripting, should output "Forrester Gump", and the number name should output a message saying to try again.|
 |4|HotCold testing|This will test whether my HotCold function will output the correct message depending on how close you are to the number.|Go into dev mode (enter '5937' when asked for a name), look at the provided number, and formulate your guesses from that. Deoending on the provided number, guess 9 numbers behind/forward 5 times. e.g, if the provided number was 24, you can't go back far, so go forward. You would type 32, 41, 50, 59, and 68 to test the messages. for a higher number, you would do similar but backwards.|Each integer should return a different message corresponding to roughly how close it is to the source number.|
-|5|Attempt Countdown testing|This will test whether the code correctly limits your attempt count depending on the quantity specified in the code.|Just guess repeatedly, you should be told how many attempts you have left as well as when you have none left.
-|6|Replay loop testing|This will test whether the code can correctly replay the code after an expiry of attempt quantity.|Just play until you get the 'do you want to play again' message, and try to say yes after two playthroughs, and then say no on the third.|Depending on your 
+|5|Attempt Countdown testing|This will test whether the code correctly limits your attempt count depending on the quantity specified in the code.|Just guess repeatedly, you should be told how many attempts you have left as well as when you have none left.|It should count down your attempts visibly, while not counting down if a "try again" message is displayed.
+|6|Replay loop testing|This will test whether the code can correctly replay the code after an expiry of attempt quantity.|Just play until you get the 'do you want to play again' message, and try to say yes after two playthroughs, and then say no on the third.|Depending on your choice of yes or no, the engine should comply and either stop the game and quit, or continue with a new number.
 
 ### Test Results
 |**Test ID**|**ngIt1**|**ngIt2**|**ngIt3**|**ngIt4**|**ngIt5**|**ngIt6**|
 |---|---|---|---|---|---|---|
-|1|Success|Success|N/A|N/A|N/A|N/A|
-|2|Success|Success|N/A|N/A|N/A|N/A|
-|3|Success|Success|Success|N/A|N/A|N/A|
-|4|Success|Success|Success|Success|N/A|N/A|
-|5|Success|Success|Success|Success|Success|N/A|
-|6|Success|Success|Success|Success|Success|Success|
+|1|||||||
+|2|||||||
+|3|||||||
+|4|||||||
+|5|||||||
+|6|||||||
