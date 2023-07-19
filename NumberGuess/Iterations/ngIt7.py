@@ -1,5 +1,5 @@
 """Basic number guessing game."""
-# startDate: 2023.4.3
+# startDate: 2023.7.19
 
 # import time, random, colors
 import random
