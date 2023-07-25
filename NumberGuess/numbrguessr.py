@@ -60,8 +60,12 @@ def replay(replay_stat):
         replay_boolean = False
     else:
         print("I will take your incompliance as a no, bye!")
-    while replay_boolean:
+        return()
+    if replay_boolean:
         game_start(6)
+    else:
+        print("It's sad to see you go, but I hope this was fun!")
+        
 
 
 def number_guess(guess):
