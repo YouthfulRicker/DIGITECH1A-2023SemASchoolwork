@@ -30,7 +30,7 @@ elif file == "8":
   exec(open("NumberGuess/numbrguessr.py").read())
 elif file == "9":
   try:
-    itno = int(input("Which iteration do you want? (1-6)\n"))
+    itno = int(input("Which iteration do you want? (1-7)\n"))
   except:
     print("invalid, please try again")
   os.system('clear')
