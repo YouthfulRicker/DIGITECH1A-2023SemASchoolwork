@@ -21,7 +21,9 @@ max_attempts = 6
 
 # funcs
 def number_check(text):
+    """Return true if any character in string is a digit."""
     return any(char.isdigit() for char in text)
+
 
 def hot_cold(input):
     """Return hot/cold info."""
@@ -61,7 +63,10 @@ def replay(replay_stat):
         print("I will take your incompliance as a no, bye!")
     while replay_boolean:
         game_start(6)
-        replay_stat = input(Fore.MAGENTA + Style.BRIGHT + "Would you like to play again? (yes or no)\n")
+        replay_stat = input(
+            Fore.MAGENTA + Style.BRIGHT +
+            "Would you like to play again? (yes or no)\n"
+            )
         replay_boolean = replay_stat.lower() == "yes"
     return replay_stat
 
@@ -96,7 +101,10 @@ def game_start(attempt_count):
     correct = False
     while attempt_count != 0 and not correct:
         try:
-            guess = int(input(Fore.BLUE + Style.BRIGHT + "\nGuess the Number!\n"))
+            guess = int(input(
+                Fore.BLUE + Style.BRIGHT +
+                "\nGuess the Number!\n"
+                ))
             correct, attempt_count = number_guess(guess, attempt_count)
             if correct:
                 break
@@ -108,7 +116,10 @@ def game_start(attempt_count):
             print(Fore.RED + Style.BRIGHT + "Make it good, 1 attempt left!")
         elif attempt_count == 0:
             print(Fore.RED + Style.BRIGHT + "Sorry, out of attempts!\n")
-            print(Fore.RED + Style.BRIGHT + "The answer was {}\n".format(numero))
+            print(
+                Fore.RED + Style.BRIGHT +
+                "The answer was {}\n".format(numero)
+                )
         else:
             print("Try again, {} attempts left.".format(attempt_count))
     return attempt_count
@@ -123,7 +134,7 @@ if name == "5937":
 else:
     while number_check(name):
         print(Fore.RED + Style.BRIGHT + "\nNo numbers in your name please.\n")
-        name = input(Fore.MAGENTA + Style.BRIGHT +"Please enter your name\n")
+        name = input(Fore.MAGENTA + Style.BRIGHT + "Please enter your name\n")
     name = name.strip()
     time.sleep(3)
     print(Fore.MAGENTA + Style.BRIGHT +
@@ -150,7 +161,10 @@ else:
 # number-guessing
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
 attempt_count_remaining = game_start(max_attempts)
-replay_stat = input(Fore.MAGENTA + Style.BRIGHT + "Would you like to play again? (yes or no)\n")
+replay_stat = input(
+    Fore.MAGENTA + Style.BRIGHT +
+    "Would you like to play again? (yes or no)\n"
+    )
 while replay_stat.lower() == "yes":
     numero = random.randrange(1, 101)
     replay_stat = replay(replay_stat)
