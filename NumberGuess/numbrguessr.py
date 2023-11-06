@@ -4,6 +4,7 @@
 # import time, random, colors
 import random
 import time
+
 from colorama import Fore, Style
 
 # vars
@@ -100,6 +101,7 @@ def game_start(attempt_count):
     """Do number_guess in loops."""
     correct = False
     while attempt_count != 0 and not correct:
+        numero = random.randrange(1, 101)
         try:
             guess = int(input(
                 Fore.BLUE + Style.BRIGHT +

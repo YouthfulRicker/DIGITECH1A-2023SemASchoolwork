@@ -35,3 +35,7 @@ Example:
 ---
 
 - Within NumberGuess is my final project, a number guessing game.
+
+---
+
+- All commit-by-commit progress is listed on [the GitHub commit page](https://github.com/YouthfulRicker/DIGITECH1A-2023SemASchoolwork/commits/main)
