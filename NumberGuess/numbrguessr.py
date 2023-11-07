@@ -10,6 +10,7 @@ from colorama import Fore, Style
 # vars
 hundy = list(range(1, 101))
 numero = random.randrange(1, 101)
+guesses = []
 hotcold_alerts = [
     "\nYOU ARE SO CLOOOOSEEEEEEEEEE, BOILING, ABSOLUTELY BOILING!",
     "\nYou are close, close but incorrect.\nHot, as people would say.",
@@ -53,7 +54,7 @@ def hot_cold(input):
             print(Fore.BLUE + Style.BRIGHT + hotcold_alerts[4])
 
 
-def replay(replay_stat):
+def replay(replay_stat, guesses):
     """Replay the game."""
     replay_boolean = False
     if replay_stat.lower() == "yes":
@@ -63,14 +64,17 @@ def replay(replay_stat):
     else:
         print("I will take your incompliance as a no, bye!")
     while replay_boolean:
-        game_start(6)
-        replay_stat = input(
-            Fore.MAGENTA + Style.BRIGHT +
-            "Would you like to play again? (yes or no)\n"
-            )
+        game_start(6, guesses)
+        replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
+                            "Would you like to play again? (yes or no)\n")
+        while replay_stat.lower() not in ["yes", "no"]:
+            time.sleep(1)
+            print(Fore.RED + Style.BRIGHT + "\nPlease enter yes or no")
+            time.sleep(1)
+            replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
+                                "Would you like to play again? (yes or no)\n")
         replay_boolean = replay_stat.lower() == "yes"
     return replay_stat
-
 
 def number_guess(guess, attempt_count):
     """Process the user's number guess."""
@@ -84,6 +88,9 @@ def number_guess(guess, attempt_count):
     else:
         print(Fore.RED + Style.BRIGHT + "Please, within 1-100.\n")
         attempt_count += 1
+        return False, attempt_count
+
+    guesses.append(guess)
     return False, attempt_count
 
 
@@ -97,16 +104,14 @@ def number_print():
     time.sleep(5)
 
 
-def game_start(attempt_count):
+def game_start(attempt_count, guesses):
     """Do number_guess in loops."""
     correct = False
     while attempt_count != 0 and not correct:
         numero = random.randrange(1, 101)
         try:
-            guess = int(input(
-                Fore.BLUE + Style.BRIGHT +
-                "\nGuess the Number!\n"
-                ))
+            guess = int(
+                input(Fore.BLUE + Style.BRIGHT + "\nGuess the Number!\n"))
             correct, attempt_count = number_guess(guess, attempt_count)
             if correct:
                 break
@@ -118,10 +123,11 @@ def game_start(attempt_count):
             print(Fore.RED + Style.BRIGHT + "Make it good, 1 attempt left!")
         elif attempt_count == 0:
             print(Fore.RED + Style.BRIGHT + "Sorry, out of attempts!\n")
-            print(
-                Fore.RED + Style.BRIGHT +
-                "The answer was {}\n".format(numero)
-                )
+            print(Fore.RED + Style.BRIGHT +
+                  "The answer was {}\n".format(numero))
+            print(Fore.BLUE + Style.BRIGHT + "You Guessed:", guesses, "\n")
+
+            guesses = []
         else:
             print("Try again, {} attempts left.".format(attempt_count))
     return attempt_count
@@ -162,11 +168,19 @@ else:
 
 # number-guessing
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
-attempt_count_remaining = game_start(max_attempts)
-replay_stat = input(
-    Fore.MAGENTA + Style.BRIGHT +
-    "Would you like to play again? (yes or no)\n"
-    )
+attempt_count_remaining = game_start(max_attempts, guesses)
+
+replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
+                    "Would you like to play again? (yes or no)\n")
+
+while replay_stat.lower() not in ["yes", "no"]:
+    time.sleep(1)
+    print(Fore.RED + Style.BRIGHT + "\nPlease enter yes or no")
+    time.sleep(1)
+    replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
+                        "Would you like to play again? (yes or no)\n")
+
 while replay_stat.lower() == "yes":
+    guesses = []
     numero = random.randrange(1, 101)
-    replay_stat = replay(replay_stat)
+    replay(replay_stat, guesses)
