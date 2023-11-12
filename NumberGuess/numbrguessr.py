@@ -70,6 +70,7 @@ def replay(replay_stat, guesses):
 def number_guess(guess, attempt_count, numero, guesses):
     """Process the user's number guess."""
     if guess in hundy:
+        guesses.append(guess)
         if guess == numero:
             print(Fore.GREEN + Style.BRIGHT + "Correct!!")
             print(Fore.BLUE + Style.BRIGHT + "You Guessed:", guesses, "\n")
@@ -80,7 +81,6 @@ def number_guess(guess, attempt_count, numero, guesses):
     else:
         print(Fore.RED + Style.BRIGHT + "Please, within 1-100.\n")
         attempt_count += 1
-    guesses.append(guess)
     return False, attempt_count, guesses
 
 
