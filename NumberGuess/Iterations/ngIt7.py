@@ -27,31 +27,19 @@ def number_check(text):
     return any(char.isdigit() for char in text)
 
 
-def hot_cold(input):
+def hot_cold(guess, numero):
     """Return hot/cold info."""
-    difference = abs(input - numero)
-    if input < numero:
-        if difference < 10:
-            print(Fore.RED + Style.BRIGHT + hotcold_alerts[0])
-        elif difference < 20:
-            print(Fore.RED + Style.NORMAL + hotcold_alerts[1])
-        elif difference < 30:
-            print(Fore.YELLOW + Style.BRIGHT + hotcold_alerts[2])
-        elif difference < 40:
-            print(Fore.CYAN + Style.BRIGHT + hotcold_alerts[3])
-        else:
-            print(Fore.BLUE + Style.BRIGHT + hotcold_alerts[4])
-    elif input > numero:
-        if difference < 10:
-            print(Fore.RED + Style.BRIGHT + hotcold_alerts[0])
-        elif difference < 20:
-            print(Fore.RED + Style.NORMAL + hotcold_alerts[1])
-        elif difference < 30:
-            print(Fore.YELLOW + Style.BRIGHT + hotcold_alerts[2])
-        elif difference < 40:
-            print(Fore.CYAN + Style.BRIGHT + hotcold_alerts[3])
-        else:
-            print(Fore.BLUE + Style.BRIGHT + hotcold_alerts[4])
+    difference = abs(guess - numero)
+    if difference < 5:
+        print(Fore.RED + Style.BRIGHT + hotcold_alerts[0])
+    elif difference < 10:
+        print(Fore.RED + Style.BRIGHT + hotcold_alerts[1])
+    elif difference < 20:
+        print(Fore.YELLOW + Style.BRIGHT + hotcold_alerts[2])
+    elif difference < 30:
+        print(Fore.CYAN + Style.BRIGHT + hotcold_alerts[3])
+    else:
+        print(Fore.BLUE + Style.BRIGHT + hotcold_alerts[4])
 
 
 def replay(replay_stat, guesses):
@@ -61,10 +49,9 @@ def replay(replay_stat, guesses):
         replay_boolean = True
     elif replay_stat.lower() == "no":
         replay_boolean = False
-    else:
-        print("I will take your incompliance as a no, bye!")
     while replay_boolean:
-        game_start(6, guesses)
+        numero = random.randrange(1, 101)
+        game_start(6, guesses, numero)
         replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
                             "Would you like to play again? (yes or no)\n")
         while replay_stat.lower() not in ["yes", "no"]:
@@ -73,25 +60,28 @@ def replay(replay_stat, guesses):
             time.sleep(1)
             replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
                                 "Would you like to play again? (yes or no)\n")
-        replay_boolean = replay_stat.lower() == "yes"
+        if replay_stat.lower() == "yes":
+            replay_boolean = True
+        elif replay_stat.lower() == "no":
+            replay_boolean = False
     return replay_stat
 
-def number_guess(guess, attempt_count):
+
+def number_guess(guess, attempt_count, numero, guesses):
     """Process the user's number guess."""
     if guess in hundy:
         if guess == numero:
             print(Fore.GREEN + Style.BRIGHT + "Correct!!")
-            return True, attempt_count
+            print(Fore.BLUE + Style.BRIGHT + "You Guessed:", guesses, "\n")
+            return True, attempt_count, guesses
         else:
-            hot_cold(guess)
+            hot_cold(guess, numero)
             time.sleep(1)
     else:
         print(Fore.RED + Style.BRIGHT + "Please, within 1-100.\n")
         attempt_count += 1
-        return False, attempt_count
-
     guesses.append(guess)
-    return False, attempt_count
+    return False, attempt_count, guesses
 
 
 def number_print():
@@ -104,15 +94,17 @@ def number_print():
     time.sleep(5)
 
 
-def game_start(attempt_count, guesses):
+def game_start(attempt_count, guesses, numero):
     """Do number_guess in loops."""
+    guesses = []
     correct = False
+    numero = random.randrange(1, 101)
     while attempt_count != 0 and not correct:
-        numero = random.randrange(1, 101)
         try:
             guess = int(
                 input(Fore.BLUE + Style.BRIGHT + "\nGuess the Number!\n"))
-            correct, attempt_count = number_guess(guess, attempt_count)
+            correct, attempt_count, guesses = number_guess(
+                guess, attempt_count, numero, guesses)
             if correct:
                 break
         except ValueError:
@@ -130,8 +122,9 @@ def game_start(attempt_count, guesses):
             guesses = []
         else:
             print("Try again, {} attempts left.".format(attempt_count))
-    return attempt_count
 
+
+#    return attempt_count
 
 # name + personalisation
 name = input(Fore.MAGENTA + Style.BRIGHT +
@@ -168,7 +161,7 @@ else:
 
 # number-guessing
 print(Fore.GREEN + Style.BRIGHT + "You can type your guesses now!\n")
-attempt_count_remaining = game_start(max_attempts, guesses)
+attempt_count_remaining = game_start(max_attempts, guesses, numero)
 
 replay_stat = input(Fore.MAGENTA + Style.BRIGHT +
                     "Would you like to play again? (yes or no)\n")
@@ -181,6 +174,8 @@ while replay_stat.lower() not in ["yes", "no"]:
                         "Would you like to play again? (yes or no)\n")
 
 while replay_stat.lower() == "yes":
-    guesses = []
     numero = random.randrange(1, 101)
-    replay(replay_stat, guesses)
+    replay_stat = replay(replay_stat, guesses)
+
+time.sleep(2)
+print(Fore.GREEN + Style.BRIGHT + "Thanks for playing!")
