@@ -45,6 +45,7 @@
   - Cheat Code 
   - Attempt Countdown
   - Replay Function
+  - Guess Display
 
 ---
 
@@ -79,6 +80,9 @@
     - This works by one function that takes a string 'yes or no' input through an argument, and, using an if statement, converts it into a boolean, and gives it to a while loop that runs the game base.
     - Hilariously the game base is actually what calls the replay function, looping until the player decides not to play.
     - In ngIt7, I fixed an error that was preventing a new game from creating a new guessing answer, adding a global variable and a generator to the replay function.
+- Guess Display
+    - Added in ngIt7, this feature displays the guesses you made throughout the game in a nice print function before your potential replay.
+    - Every replay of the game it resets as to isolate each gameplay further. So every time you play/replay the game it will show only the guesses from that game.
 
 -------
 
@@ -93,6 +97,7 @@
 |5|Attempt Countdown testing|This will test whether the code correctly limits your attempt count depending on the quantity specified in the code.|Just guess repeatedly, you should be told how many attempts you have left as well as when you have none left.|It should count down your attempts visibly.
 |6|Attempt Countdown error-forgiveness|This will test whether the code counts down the attempts, but forgives the user if there's an error, such as text input or boundary exceeded.|Guess some text or a number exceeding 100|It shouldn't count down, but should still tell you how many attempts you have left.
 |7|Replay loop testing|This will test whether the code can correctly replay the code after an expiry of attempt quantity.|Just play until you get the 'do you want to play again' message, and try to say yes after two playthroughs, and then say no on the third.|Depending on your choice of yes or no, the engine should comply and either stop the game and quit, or continue with a new number.
+|8|Guess List Testing|This will test the functionality of the guess list feature.|Go through three games, with the same test; Guess 100, 1, 101, 0, 80, 80, jonathan, ross, 80, and 80.|It should output at the end of all 3 games "You Guessed: [100, 1, 80, 80, 80, 80]"
 
 ### Test Results
 |**Test ID**|**ngIt1**|**ngIt2**|**ngIt3**|**ngIt4**|**ngIt5**|**ngIt6**|**ngIt7**|
@@ -104,3 +109,4 @@
 |5|N/A|N/A|N/A|N/A|Success|Success|Success|
 |6|N/A|N/A|N/A|N/A|Fail|Fail|Success|
 |7|N/A|N/A|N/A|N/A|N/A|Fail|Success|
+|8|N/A|N/A|N/A|N/A|N/A|N/A|Success|
